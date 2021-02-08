@@ -6,6 +6,7 @@
 package com.mega.JunitSpring.business;
 
 import com.mega.JunitSpring.data.SomeDataService;
+import java.util.Arrays;
 
 /**
  *
@@ -21,11 +22,7 @@ public class SomeBusinessImpl {
     }
 
     public int calculateSum(int[] data) {
-        int sum = 0;
-        for (int value : data) {
-            sum += value;
-        }
-        return sum;
+        return Arrays.stream(data).reduce(Integer::sum).orElse(0);
     }
     
     public int calculateUsingDataService() {
